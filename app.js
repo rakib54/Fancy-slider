@@ -46,18 +46,18 @@ const selectItem = (event, img) => {
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else {
-    // alert('Hey, Already added !')
-
-    element.classList.remove('added');
-    sliders.push(img);
+  } 
+  else {
+    element.classList.toggle('added');
+    sliders.splice(item ,1);
   }
 }
 var timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
-    alert('Select at least 2 image.')
+    // alert('Select at least 2 image.')
+    createSlider()
     return;
   }
   // crate slider previous next area
