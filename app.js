@@ -24,7 +24,10 @@ const showImages = (images) => {
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
-    
+    var count = '' 
+    const TotalImage = document.getElementById('ImageCount').innerText = images.length
+    const Total = TotalImage + count
+
   })
   ToggleSpinner();
 }
@@ -52,6 +55,7 @@ const selectItem = (event, img) => {
     sliders.splice(item ,1);
   }
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -60,6 +64,7 @@ const createSlider = () => {
     createSlider()
     return;
   }
+  
   // crate slider previous next area
   sliderContainer.innerHTML = '';
   const prevNext = document.createElement('div');
